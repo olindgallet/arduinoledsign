@@ -2,8 +2,9 @@
  * This code is for the black-box LED sign.  The first 7 columns don't work.
  * I will likely use this just for demo purposes and learning.
  * 
- * 1-20 are LED column pins.
- * 
+ * 1-19 are LED column pins.
+ * 20-26 are pins hooked up to transistors that control the rows.
+ *
  * Olin Gallet
  * 4/2/2017
  */
@@ -94,6 +95,9 @@ void display_symbol(int *pin, String letter[7]){
   }
 }
  
+/**
+ * Initialize all pins to LOW
+ */
 void setup() {  
   int y = 1;
   while (y < 27){
@@ -102,7 +106,10 @@ void setup() {
   }
 }
 
-// the loop routine runs over and over again forever:
+/**
+ * For example, display "H" starting at column 6,
+ * display "I" starting at column 13
+ */
 void loop() {
   if (column == 6){
     display_symbol(&column, H_LETTER);
